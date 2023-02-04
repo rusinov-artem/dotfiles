@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# ln -s target linkname
+
+DOTFILES=$(cd  $(dirname "${BASH_SOURCE[0]}") && pwd)
+
+
