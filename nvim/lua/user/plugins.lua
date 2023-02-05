@@ -88,7 +88,7 @@ require('packer').startup(function(use)
 
   use({
   'nvim-telescope/telescope.nvim',
-  requires = {
+   requires = {
     { 'nvim-lua/plenary.nvim' },
     { 'kyazdani42/nvim-web-devicons' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
@@ -113,7 +113,17 @@ require('packer').startup(function(use)
   config = function()
     require('user.plugins.lualine')
   end,
-})
+ })
+
+  use({
+  'lewis6991/gitsigns.nvim',
+  config = function()
+    require('gitsigns').setup()
+    vim.keymap.set('n', ']h', ':Gitsigns next_hunk<CR>')
+    vim.keymap.set('n', '[h', ':Gitsigns prev_hunk<CR>')
+  end,
+ })
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -121,6 +131,9 @@ require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
+
+---
 
 vim.cmd([[
   augroup packer_user_config
