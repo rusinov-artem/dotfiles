@@ -15,9 +15,7 @@ require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use 'tpope/vim-commentary'
-
   use 'tpope/vim-surround'
-
   use 'tpope/vim-eunuch'
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-sleuth'
@@ -33,7 +31,6 @@ require('packer').startup(function(use)
     requires = 'kana/vim-textobj-user'
   })
 
-  
   use({
     'airblade/vim-rooter',
     setup = function()
@@ -131,6 +128,18 @@ require('packer').startup(function(use)
   end,
 })
 
+  use({
+  'nvim-treesitter/nvim-treesitter',
+  run = ':TSUpdate',
+  requires = {
+    'nvim-treesitter/playground',
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    'JoosepAlviste/nvim-ts-context-commentstring',
+  },
+  config = function()
+    require('user.plugins.treesitter')
+  end,
+})
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
