@@ -18,4 +18,7 @@ vim.opt.undofile = true
 vim.opt.backup = true
 vim.opt.backupdir:remove('.')
 
+vim.opt.swapfile = false
+vim.opt.cursorline = true
+
 
