@@ -21,4 +21,6 @@ vim.opt.backupdir:remove('.')
 vim.opt.swapfile = false
 vim.opt.cursorline = true
 
+-- vim.cmd('colorscheme desert')
+
 
