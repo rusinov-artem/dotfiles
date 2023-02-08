@@ -55,33 +55,8 @@ require('packer').startup(function(use)
   end,
  })
 
-  use({
-    'jessarcher/onedark.nvim',
-    config = function()
-      vim.cmd('colorscheme onedark')
-
-      -- Hide the characters in FloatBorder
-      vim.api.nvim_set_hl(0, 'FloatBorder', {
-        fg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-        bg = vim.api.nvim_get_hl_by_name('NormalFloat', true).background,
-      })
-
-      -- Make the StatusLineNonText background the same as StatusLine
-      vim.api.nvim_set_hl(0, 'StatusLineNonText', {
-        fg = vim.api.nvim_get_hl_by_name('NonText', true).foreground,
-        bg = vim.api.nvim_get_hl_by_name('StatusLine', true).background,
-      })
-
-      -- Hide the characters in CursorLineBg
-      vim.api.nvim_set_hl(0, 'CursorLineBg', {
-        fg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-        bg = vim.api.nvim_get_hl_by_name('CursorLine', true).background,
-      })
-
-      vim.api.nvim_set_hl(0, 'NvimTreeIndentMarker', { fg = '#30323E' })
-      vim.api.nvim_set_hl(0, 'IndentBlanklineChar', { fg = '#2F313C' })
-    end,
-  })
+-- One Dark theme.
+use { "catppuccin/nvim", as = "catppuccin" }
 
   use({
   'nvim-telescope/telescope.nvim',
@@ -90,6 +65,7 @@ require('packer').startup(function(use)
     { 'kyazdani42/nvim-web-devicons' },
     { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     { 'nvim-telescope/telescope-live-grep-args.nvim' },
+    { 'nvim-tree/nvim-web-devicons' },
   },
   config = function()
     require('user/plugins/telescope')
@@ -147,6 +123,9 @@ require('packer').startup(function(use)
   requires = {
     'williamboman/mason.nvim',
     'williamboman/mason-lspconfig.nvim',
+    'b0o/schemastore.nvim',
+    'jose-elias-alvarez/null-ls.nvim',
+    'jayp0521/mason-null-ls.nvim',
   },
   
   config = function()
@@ -172,6 +151,8 @@ require('packer').startup(function(use)
     require('user.plugins.cmp')
   end,
 })
+
+
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
