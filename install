@@ -4,6 +4,10 @@
 
 DOTFILES=$(cd  $(dirname "${BASH_SOURCE[0]}") && pwd)
 
+
+rm ~/.config/kitty -rf
+ln -s ${DOTFILES}/kitty ~/.config/kitty
+
 rm ~/.config/tmux -rf
 ln -s ${DOTFILES}/tmux ~/.config/tmux
 
