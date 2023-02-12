@@ -4,6 +4,17 @@ require('mason-lspconfig').setup({ automatic_installation = true })
 
 -- PHP
 require('lspconfig').intelephense.setup({})
+require('lspconfig').pyright.setup({})
+
+require('lspconfig').lua_ls.setup({
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { 'vim' }
+        }
+      }
+    }
+  })
 
 
 -- Keymaps

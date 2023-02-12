@@ -20,8 +20,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-unimpaired'
   use 'tpope/vim-sleuth'
   use 'tpope/vim-repeat'
-  use 'sheerun/vim-polyglot' 
-  use 'christoomey/vim-tmux-navigator' 
+  use 'sheerun/vim-polyglot'
+  use 'christoomey/vim-tmux-navigator'
   use 'farmergreg/vim-lastplace'
   use 'nelstrom/vim-visual-star-search'
   use 'jessarcher/vim-heritage'
@@ -152,7 +152,16 @@ use { "catppuccin/nvim", as = "catppuccin" }
   end,
 })
 
-
+-- PHP Refactoring Tools
+use({
+  'phpactor/phpactor',
+  ft = 'php',
+  run = 'composer install --no-dev --optimize-autoloader',
+  config = function()
+    vim.keymap.set('n', '<Leader>pm', ':PhpactorContextMenu<CR>')
+    vim.keymap.set('n', '<Leader>pn', ':PhpactorClassNew<CR>')
+  end,
+})
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
