@@ -16,6 +16,7 @@ require('lspconfig').lua_ls.setup({
     }
   })
 
+require('lspconfig').clangd.setup({})
 
 -- Keymaps
 vim.keymap.set('n', '<Leader>d', '<cmd>lua vim.diagnostic.open_float()<CR>')
