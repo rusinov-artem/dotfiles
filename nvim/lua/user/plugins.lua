@@ -163,12 +163,16 @@ use({
   end,
 })
 
-  -- Automatically set up your configuration after cloning packer.nvim
+ use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+ use {"sakhnik/nvim-gdb",  run =  './install.sh' }
+
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
+
+
 
 
 ---
