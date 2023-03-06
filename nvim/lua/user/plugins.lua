@@ -33,7 +33,7 @@ require('packer').startup(function(use)
 
 use {
     'notjedi/nvim-rooter.lua',
-    config = function() 
+    config = function()
       require('user.plugins.nvim-rooter')
     end
 }
@@ -160,8 +160,11 @@ use({
   end,
 })
 
- use({ "mfussenegger/nvim-dap", requires = { "rcarriga/nvim-dap-ui" } })
- use {'leoluz/nvim-dap-go', }
+ use({ "mfussenegger/nvim-dap", requires = { "rcarriga/nvim-dap-ui" },
+     config = function ()
+       require('user.plugins.go-dap')
+     end
+   })
  use 'theHamsta/nvim-dap-virtual-text'
  use 'nvim-telescope/telescope-dap.nvim'
 
