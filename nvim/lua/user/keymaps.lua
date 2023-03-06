@@ -1,3 +1,9 @@
+-- How to find mappings?
+-- :nmap - all of the mappings for normal mode 
+-- :nmap <leader> - that will be all of my leader mappings
+-- :verbose nmap <leader> that will even show me where is my mappings
+-- :Telescope keymap - the best way
+-- 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -37,3 +43,11 @@ vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==gi')
 vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==gi')
 vim.keymap.set('x', '<A-j>', ":move '>+1<CR>gv-gv")
 vim.keymap.set('x', '<A-k>', ":move '<-2<CR>gv-gv")
+
+-- debugging
+vim.keymap.set("n", "<F5>", require('dap').continue)
+vim.keymap.set("n", "<F10>", require('dap').step_over)
+vim.keymap.set("n", "<F11>", require('dap').step_into)
+vim.keymap.set("n", "<F12>", require('dap').step_out)
+vim.keymap.set("n", "<leader>b", require('dap').toggle_breakpoint)
+

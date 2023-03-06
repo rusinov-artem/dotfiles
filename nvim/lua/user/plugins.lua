@@ -31,15 +31,12 @@ require('packer').startup(function(use)
     requires = 'kana/vim-textobj-user'
   })
 
-  use({
-    'airblade/vim-rooter',
-    setup = function()
-      vim.g.rooter_manual_only = 1
-    end,
-    config = function()
-      vim.cmd('Rooter')
-    end,
-  })
+use {
+    'notjedi/nvim-rooter.lua',
+    config = function() 
+      require('user.plugins.nvim-rooter')
+    end
+}
 
   use({
     'windwp/nvim-autopairs',
@@ -163,17 +160,27 @@ use({
   end,
 })
 
- use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+ use({ "mfussenegger/nvim-dap", requires = { "rcarriga/nvim-dap-ui" } })
+ use {'leoluz/nvim-dap-go', }
+ use 'theHamsta/nvim-dap-virtual-text'
+ use 'nvim-telescope/telescope-dap.nvim'
+
  use {"sakhnik/nvim-gdb",  run =  './install.sh' }
+
+  use { 'nagy135/typebreak.nvim',
+      requires = 'nvim-lua/plenary.nvim',
+      config = function()
+          vim.keymap.set('n', '<leader>tb', require('typebreak').start, { desc = "Typebreak" })
+      end
+  }
+
+
 
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
 end)
-
-
-
 
 ---
 
