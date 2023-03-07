@@ -91,3 +91,21 @@ dap.configurations.cpp = {
 }
 
 
+------------------ 
+dap.adapters.php = {
+  type = "executable",
+  command = "node",
+  args = { "/home/artem/notes/vscode-php/extension/out/phpDebug.js" }
+}
+
+dap.configurations.php = {
+  {
+    type = "php",
+    request = "launch",
+    name = "Listen for Xdebug",
+    port = 9001,
+    pathMappings = {
+      ["/var/www/santa/"] = "${workspaceFolder}/web"
+    }
+  }
+}
